@@ -1,14 +1,22 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-full.svg"
-    >
+  <q-page>
+    <div class="row" style="height: 45vh !important;">
+      <div class="col-6">
+        <client-list/>
+      </div>
+      <div class="col-6">test</div>
+    </div>
+    <div class="row" style="height: 45vh !important;">
+      <div class="col-6">Test</div>
+      <div class="col-6">Test</div>
+    </div>
   </q-page>
 </template>
 
 <script>
+import ClientList from 'components/clientComponents/clientList'
 export default {
-  name: 'PageIndex'
+  name: 'PageIndex',
+  components: { ClientList }
 }
 </script>
