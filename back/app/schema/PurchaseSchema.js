@@ -10,9 +10,6 @@ const purchaseSchema = new Schema({
     mois_vente: {
         type: Number
     },
-    total_price: {
-        type: Number
-    },
     products: [
         {
             type: Schema.Types.ObjectId,

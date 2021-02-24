@@ -27,7 +27,11 @@ const createProduct = function (libelle, price, famillies, universes) {
            families: famillies,
            universes: universes
        }, function (err, product) {
-           resolve(product)
+           if (err) {
+               getOrCreate(libelle, price, famillies, universes).then();
+           } else {
+               resolve(product)
+           }
        })
     });
 }

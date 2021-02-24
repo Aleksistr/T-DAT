@@ -14,7 +14,6 @@ const updateOrCreate = function (ticketId, mois_vente, product) {
                 })
             } else {
                 purchase.products.push(product);
-                purchase.total_price = purchase.total_price + product.price;
                 purchase.save(function (err, purch) {
                     resolve(purch);
                 })
@@ -28,10 +27,13 @@ const createPurchase = function (ticket_id, mois_vente, product) {
        purchaseSchema.create({
            ticket_id: ticket_id,
            mois_vente: mois_vente,
-           total_price: product.price,
            products: [product]
        }, function (err, purchase) {
-           resolve(purchase)
+           if (err) {
+               updateOrCreate(ticket_id, mois_vente, product).then();
+           } else {
+               resolve(purchase)
+           }
        })
     });
 }

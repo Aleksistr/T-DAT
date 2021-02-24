@@ -24,7 +24,11 @@ const createFamille = function (familyName) {
        familleSchema.create({
            name: familyName
        }, function (err, familly) {
-           resolve(familly)
+           if (err) {
+               getOrCreate(familyName).then();
+           } else {
+               resolve(familly)
+           }
        })
     });
 }

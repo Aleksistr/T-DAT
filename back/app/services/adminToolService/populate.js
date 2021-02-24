@@ -1,41 +1,38 @@
 'use strict';
 
-const fs = require('fs');
-const csv = require('csv-parser');
-
 const famileService = require('../famileServices')
 const universService = require('../universServices')
 const productService = require('../productServices')
 const purchaseService = require('../purchaseServices')
 const clientService = require('../clientServices')
-
+const rowSchema = require('../../schema/RowSchema')
 
 const populate = function () {
     return new Promise((resolve, reject) => {
-        fs.createReadStream('KaDo.csv')
-            .pipe(csv())
-            .on('data', (row) => {
-                createRow(row).then();
+        rowSchema.find()
+            .exec(function(err, rows) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    rows.forEach((row) => {
+                        createRow(row).then();
+                    })
+                    console.log('Done');
+                    resolve(true);
+                }
             })
-            .on('end', () => {
-                resolve('done')
-            });
     });
 }
 
 
 const createRow = function (row) {
     return new Promise((resolve, reject) => {
-        let familly = null;
-        let universes = [];
 
         manageRowFamilly(row).then((famille) => {
-            familly = famille;
             manageRowUniverse(row).then((universeList) => {
-                universes = universeList;
-                manageRowProduct(row, familly, universes).then((product) => {
+                manageRowProduct(row, famille, universeList).then((product) => {
                     manageRowPurchase(row, product).then((purchase) => {
-                        manageRowClient(row, purchase).then(() => {
+                        manageRowClient(row, purchase).then((client) => {
                             resolve(true);
                         })
                     });

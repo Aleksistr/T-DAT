@@ -8,20 +8,24 @@ const updateOrCreate = function (cliId, purchase) {
             if (err) {
                 console.log('Error');
             }
-            if (client === null) {
-                createClient(cliId, purchase).then((cli) => {
-                    resolve(cli);
-                })
-            } else {
-                // test purchase id
-                if (! client.purchases.includes(purchase._id)) {
-                    client.purchases.push(purchase);
-                    client.save(function (err, cli) {
+            if (typeof purchase!== 'undefined') {
+                if (client === null) {
+                    createClient(cliId, purchase).then((cli) => {
                         resolve(cli);
                     })
                 } else {
-                    resolve(client)
+                    // test purchase id
+                    if (! client.purchases.includes(purchase._id)) {
+                        client.purchases.push(purchase);
+                        client.save(function (err, cli) {
+                            resolve(cli);
+                        })
+                    } else {
+                        resolve(client)
+                    }
                 }
+            } else {
+                resolve(true);
             }
         })
     });
@@ -33,7 +37,11 @@ const createClient = function (cliId, purchase) {
            client_id: cliId,
            purchases: [purchase]
        }, function (err, client) {
-           resolve(client)
+           if (err) {
+               updateOrCreate(cliId,purchase).then();
+           } else {
+               resolve(client)
+           }
        })
     });
 }

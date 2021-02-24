@@ -24,7 +24,11 @@ const createUnivers = function (universeName) {
         univerSchema.create({
            name: universeName
        }, function (err, univers) {
-           resolve(univers)
+            if (err) {
+                getOrCreate(universeName).then();
+            } else {
+                resolve(univers)
+            }
        })
     });
 }

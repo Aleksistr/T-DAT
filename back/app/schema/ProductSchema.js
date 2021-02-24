@@ -25,7 +25,7 @@ const productSchema = new Schema({
 });
 
 
-const autoPopulateFamilies = function (next) {
+/*const autoPopulateFamilies = function (next) {
     this.populate('families');
     this.populate('universes');
     next();
@@ -34,5 +34,5 @@ const autoPopulateFamilies = function (next) {
 productSchema
     .pre('find', autoPopulateFamilies)
     .pre('findOne', autoPopulateFamilies);
-
+*/
 module.exports = new mongoose.model('Product', productSchema);
