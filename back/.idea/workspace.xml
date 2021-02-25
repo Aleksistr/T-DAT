@@ -27,7 +27,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/services/productServices" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -41,6 +41,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alexi\Documents\Epitech\T-DAT\back\app\services\productServices" />
+      <recent name="C:\Users\alexi\Documents\Epitech\T-DAT\back\app\controllers" />
       <recent name="C:\Users\alexi\Documents\Epitech\T-DAT\back" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -63,6 +65,8 @@
       <workItem from="1614187896600" duration="777000" />
       <workItem from="1614188803806" duration="323000" />
       <workItem from="1614189937666" duration="7688000" />
+      <workItem from="1614251671408" duration="2376000" />
+      <workItem from="1614273914278" duration="780000" />
     </task>
     <servers />
   </component>
