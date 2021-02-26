@@ -1,5 +1,6 @@
 'use strict'
 
 module.exports = {
-  getClientList: require('./getClientList')
+  getClientList: require('./getClientList'),
+  getClient: require('./getClient')
 }

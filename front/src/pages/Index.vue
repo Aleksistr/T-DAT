@@ -25,7 +25,9 @@
         <dash-board-tab/>
       </q-tab-panel>
       <q-tab-panel name="clients">
-        Clients
+        <client-tab
+          :clientId="selectedClient"
+        />
       </q-tab-panel>
     </q-tab-panels>
   </q-page>
@@ -34,9 +36,11 @@
 <script>
 import ProductTab from 'components/productComponents/ProductTab'
 import DashBoardTab from 'components/dashBoardComponents/dashBoardTab'
+import ClientTab from 'components/clientComponents/clientTab'
 export default {
   name: 'PageIndex',
   components: {
+    ClientTab,
     DashBoardTab,
     ProductTab
   },
