@@ -1,5 +1,6 @@
 'use strict'
 
 module.exports = {
-    getOrCreate: require('./getOrCreate')
+    getOrCreate: require('./getOrCreate'),
+    getList: require('./getList')
 }

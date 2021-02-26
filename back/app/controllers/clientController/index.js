@@ -1,5 +1,7 @@
 'use strict'
 
 module.exports = {
-    get: require('./getClient')
+    get: require('./getClient'),
+    getClientFamillyCount: require('./getClientFamillyCount'),
+    getList: require('./getList')
 }

@@ -1,5 +1,7 @@
 'use strict'
 
 module.exports = {
-    getOrCreate: require('./getOrCreate')
+    getOrCreate: require('./getOrCreate'),
+    getFamillyList: require('./getFamilleList'),
+    getFamillyCount: require('./getFamillyCount')
 }

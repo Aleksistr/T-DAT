@@ -7,6 +7,8 @@ const adminToolRouter = require('./app/routes/adminTool');
 const clientRouter = require('./app/routes/client');
 const purchaseRouter = require('./app/routes/purchase');
 const productRouter = require('./app/routes/product');
+const famillyRouter = require('./app/routes/famille');
+const universeRouter = require('./app/routes/universe');
 
 const db = require ('./app/helpers/db/db');
 
@@ -19,5 +21,7 @@ app.use('/admin-tool', adminToolRouter);
 app.use('/clients', clientRouter);
 app.use('/purchases', purchaseRouter);
 app.use('/product', productRouter);
+app.use('/famillies', famillyRouter);
+app.use('/universe', universeRouter);
 
 module.exports = app;
