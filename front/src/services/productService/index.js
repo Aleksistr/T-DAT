@@ -1,5 +1,6 @@
 'use strict'
 
 module.exports = {
-  getProductForChart: require('./getProductForChart')
+  getProductForChart: require('./getProductForChart'),
+  getProductList: require('./getProductList')
 }

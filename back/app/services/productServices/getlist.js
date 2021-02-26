@@ -8,8 +8,24 @@ const getList = function () {
            if(err) {
                console.log(err);
            }
-          resolve(res);
+           let result = [];
+           res.forEach((product) => {
+               result.push(getProductFamilly(product).then())
+           });
+           let responses = Promise.all(result);
+          resolve(responses);
        });
+    });
+}
+
+const getProductFamilly = function (product) {
+    return new Promise((resolve, reject) => {
+        rowSchema.findOne({'LIBELLE': product}, function (err, res) {
+            resolve({
+                name: product,
+                famille: res.FAMILLE
+            });
+        });
     });
 }
 
