@@ -2,5 +2,6 @@
 
 module.exports = {
     getOrCreate: require('./getOrCreate'),
-    getProduct: require('./getProduct')
+    getProduct: require('./getProduct'),
+    getList: require('./getlist')
 }

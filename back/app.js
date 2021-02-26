@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/admin-tool', adminToolRouter);
 app.use('/clients', clientRouter);
 app.use('/purchases', purchaseRouter);
-app.use('/product', productRouter);
+app.use('/products', productRouter);
 app.use('/famillies', famillyRouter);
 app.use('/universe', universeRouter);
 
