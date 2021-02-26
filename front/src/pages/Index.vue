@@ -22,7 +22,7 @@
         Recommandations
       </q-tab-panel>
       <q-tab-panel name="dashboard">
-        Dashboard
+        <dash-board-tab/>
       </q-tab-panel>
       <q-tab-panel name="clients">
         Clients
@@ -33,9 +33,11 @@
 
 <script>
 import ProductTab from 'components/productComponents/ProductTab'
+import DashBoardTab from 'components/dashBoardComponents/dashBoardTab'
 export default {
   name: 'PageIndex',
   components: {
+    DashBoardTab,
     ProductTab
   },
   data () {

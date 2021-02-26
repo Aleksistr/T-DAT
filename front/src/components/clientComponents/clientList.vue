@@ -1,29 +1,35 @@
 <template>
-  <list
-    :title="'Liste des clients'"
-    :display-columns="displayColumns"
-    :data="clientList"
-    :row-key="'clientId'"
-  ></list>
+  <div style="max-height: 70vh">
+    <h4>Liste des clients</h4>
+    <div style="max-height: 65vh; overflow: auto">
+      <q-infinite-scroll>
+        <q-list>
+          <q-item v-for="client in list" :key="client">
+            <q-item-section>{{client}}</q-item-section>
+          </q-item>
+        </q-list>
+      </q-infinite-scroll>
+    </div>
+  </div>
 </template>
 
 <script>
-import List from 'components/shared/list'
+const clientService = require('../../services/clientService')
 export default {
   name: 'clientList',
-  components: { List },
   data () {
     return {
-      displayColumns: [
-        { name: 'name', label: 'Nom du client' },
-        { name: 'clientId', label: 'Id du client' }
-      ],
-      clientList: [
-        {
-          name: 'Jean',
-          clientId: '132'
-        }
-      ]
+      list: []
+    }
+  },
+  mounted () {
+    this.loadData()
+  },
+  methods: {
+    loadData () {
+      clientService.getClientList().then((response) => {
+        this.list = response
+      })
     }
   }
 }

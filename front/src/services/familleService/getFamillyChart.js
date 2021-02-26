@@ -1,15 +1,16 @@
 'use strict'
 
 const axios = require('axios')
-const getClientList = function () {
+
+const getFamillyChart = function () {
   return new Promise((resolve, reject) => {
     axios({
       method: 'get',
-      url: 'http://localhost:3000/clients/list'
+      url: 'http://localhost:3000/famillies/getCount'
     }).then((response) => {
-      resolve(response.data.list)
+      resolve(response.data.data)
     })
   })
 }
 
-module.exports = getClientList
+module.exports = getFamillyChart
