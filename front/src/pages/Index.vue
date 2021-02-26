@@ -7,7 +7,7 @@
       <q-tab name="products" label="Produits"/>
       <q-tab name="recommandation" label="Recommandation"/>
       <q-tab name="dashboard" label="Dashboard"/>
-      <q-tab name="clients" label="Données clients"/>
+      <q-tab name="clients" label="Données clients" :disable="true"/>
     </q-tabs>
     <q-tab-panels
       v-model="tab"
@@ -42,8 +42,15 @@ export default {
   },
   data () {
     return {
-      tab: 'products'
+      tab: 'products',
+      selectedClient: ''
     }
+  },
+  created () {
+    this.$root.$on('viewClient', event => {
+      this.selectedClient = event
+      this.tab = 'clients'
+    })
   }
 }
 </script>

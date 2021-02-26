@@ -6,6 +6,12 @@
         <q-list>
           <q-item v-for="client in list" :key="client">
             <q-item-section>{{client}}</q-item-section>
+            <q-item-section>
+              <q-btn
+                label="Voir Détails"
+                @click="viewDetails(client)"
+              />
+            </q-item-section>
           </q-item>
         </q-list>
       </q-infinite-scroll>
@@ -30,6 +36,9 @@ export default {
       clientService.getClientList().then((response) => {
         this.list = response
       })
+    },
+    viewDetails (client) {
+      this.$root.$emit('viewClient', client)
     }
   }
 }
