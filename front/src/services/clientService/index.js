@@ -2,5 +2,6 @@
 
 module.exports = {
   getClientList: require('./getClientList'),
-  getClient: require('./getClient')
+  getClient: require('./getClient'),
+  getClientFamillyRepartition: require('./getClientFamillyRepartition')
 }

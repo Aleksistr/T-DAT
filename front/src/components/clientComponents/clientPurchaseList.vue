@@ -11,6 +11,7 @@
             <q-list>
               <q-item v-for="(product, indexBis) in purchase.products" :key="indexBis">
                 <q-item-section>{{product.libelle}}</q-item-section>
+                <q-item-section>{{product.famille}}</q-item-section>
                 <q-item-section>{{product.prix}}</q-item-section>
               </q-item>
             </q-list>
@@ -42,7 +43,8 @@ export default {
               found = true
               purchase.products.push({
                 libelle: element.LIBELLE,
-                prix: element.PRIX_NET
+                prix: element.PRIX_NET,
+                famille: element.FAMILLE
               })
             }
           })
@@ -53,7 +55,8 @@ export default {
               products: [
                 {
                   libelle: element.LIBELLE,
-                  prix: element.PRIX_NET
+                  prix: element.PRIX_NET,
+                  famille: element.FAMILLE
                 }
               ]
             })
